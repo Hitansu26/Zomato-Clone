@@ -15,13 +15,15 @@ pipeline {
         }
         stage('checkout from Git') {
             steps {
-                git url: 'https://github.com/Hitansu26/Zomato-Clone.git', branch: 'dev'
+                git url: 'https://github.com/Hitansu26/Zomato-Clone.git',       
+                
+                    branch: 'dev'
             }
         }
          stage("Sonarqube Analysis "){
             steps{
                 withSonarQubeEnv('sonar-server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=zomato \
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Zomato-clone \
                     -Dsonar.projectKey=zomato '''
                 }
             }
